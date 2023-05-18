@@ -18,6 +18,8 @@ export default class Carts {
 
     getById = async (id) => {
         const cart = await cartModel.find({ _id: id }).lean();
+        console.log(JSON.stringify(cart, null, '\t'));
+        // console.log(cart);
         if (!cart) {
             return { status: 'error', error: 'Cart not found' };
         } else {
