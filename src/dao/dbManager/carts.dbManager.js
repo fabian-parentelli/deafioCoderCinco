@@ -1,4 +1,3 @@
-import e from 'express';
 import { cartModel } from '../models/carts.model.js';
 import Products from './products.dbManager.js';
 
@@ -42,7 +41,7 @@ export default class Carts {
         if(exist !== -1) {
             cart.products[exist].quantity++;
         } else {
-            cart.products.push(product._id);
+            cart.products.push({product: product._id});
         };
 
         const result = await this.update(cart._id, cart);

@@ -20,7 +20,7 @@ router.get('/:pid', async (req, res) => {
     try {
         const result = await cartManager.getById(pid);
         res.send({ status: 'Success', payload: result });
-
+        console.log(result);
     } catch (error) {
         res.status(500).send({ error: 'Error', error });
     };
@@ -32,7 +32,6 @@ router.post('/:cid/product/:pid', async (req, res) => {
     try {
         const result = await cartManager.addProductToCart(cid, pid);
         res.send({ status: 'Success', payload: result });
-
     } catch (error) {
         res.status(500).send({ error: 'Error', error });
     };
