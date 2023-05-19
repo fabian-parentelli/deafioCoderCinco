@@ -36,7 +36,8 @@ export default class Carts {
         const cart = await cartModel.findOne({_id : cid});
         const product = await productmanager.getById(pid);
 
-        const exist = cart.products.findIndex( pro => pro._id.toString() === product._id.toString());
+        const exist = cart.products.findIndex( pro => pro.product.toString() === product._id.toString());
+        console.log(exist);
         
         if(exist !== -1) {
             cart.products[exist].quantity++;
